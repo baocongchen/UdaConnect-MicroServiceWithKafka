@@ -1,0 +1,32 @@
+[
+  {
+    "company_name": "Alpha Omega Upholstery",
+    "id": 5,
+    "first_name": "Taco",
+    "last_name": "Fargo"
+  },
+  {
+    "company_name": "USDA",
+    "id": 6,
+    "first_name": "Frank",
+    "last_name": "Shader"
+  },
+  {
+    "company_name": "Hampton, Hampton and McQuill",
+    "id": 1,
+    "first_name": "Pam",
+    "last_name": "Trexler"
+  },
+  {
+    "company_name": "Paul Badman & Associates",
+    "id": 8,
+    "first_name": "Paul",
+    "last_name": "Badman"
+  },
+  {
+    "company_name": "The Chicken Sisters Restaurant",
+    "id": 9,
+    "first_name": "Otto",
+    "last_name": "Spring"
+  }
+]

@@ -1,0 +1,16 @@
+EndPoints:
+* http://localhost:30001/ - OpenAPI Documentation for Location API
+* http://localhost:30001/api/locations - Base path for Location API
+* http://localhost:30002/ - OpenAPI Documentation for Person API
+* http://localhost:30002/api/persons - Base path for Person API
+* http://localhost:30003/ - OpenAPI Documentation for Connection API
+* http://localhost:30003/api//persons/<person_id>/connection - Base path for Connection API
+* http://localhost:30000/ - Frontend ReactJS Application
+
+Sample Requests:
+* http://localhost:30001/api/locations
+* http://localhost:30001/api/locations/30
+* http://localhost:30002/api/persons
+* http://localhost:30002/api/persons/5
+* http://localhost:30003/api/persons/1/connection?distance=3&start_date=2020-07-01&end_date=2020-07-02
+

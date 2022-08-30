@@ -1,0 +1,275 @@
+[
+    {
+      "latitude": "-122.290524",
+      "creation_time": "2020-08-18T10:37:06",
+      "person_id": 1,
+      "id": 29,
+      "longitude": "37.553441"
+    },
+    {
+      "latitude": "-122.290883",
+      "creation_time": "2020-08-15T10:37:06",
+      "person_id": 5,
+      "id": 30,
+      "longitude": "37.55363"
+    },
+    {
+      "latitude": "-122.290524",
+      "creation_time": "2020-08-15T10:37:06",
+      "person_id": 5,
+      "id": 31,
+      "longitude": "37.553441"
+    },
+    {
+      "latitude": "-122.290521",
+      "creation_time": "2020-08-15T10:37:06",
+      "person_id": 1,
+      "id": 32,
+      "longitude": "37.553441"
+    },
+    {
+      "latitude": "-122.290521",
+      "creation_time": "2020-08-19T10:37:06",
+      "person_id": 1,
+      "id": 33,
+      "longitude": "37.553451"
+    },
+    {
+      "latitude": "-122.290883",
+      "creation_time": "2020-07-07T10:37:06",
+      "person_id": 6,
+      "id": 34,
+      "longitude": "37.55363"
+    },
+    {
+      "latitude": "-122.290883",
+      "creation_time": "2020-07-07T10:37:06",
+      "person_id": 1,
+      "id": 36,
+      "longitude": "37.55363"
+    },
+    {
+      "latitude": "-122.290883",
+      "creation_time": "2020-07-07T10:37:06",
+      "person_id": 1,
+      "id": 37,
+      "longitude": "37.55363"
+    },
+    {
+      "latitude": "-122.290883",
+      "creation_time": "2020-07-07T10:37:06",
+      "person_id": 1,
+      "id": 38,
+      "longitude": "37.55363"
+    },
+    {
+      "latitude": "-122.290883",
+      "creation_time": "2020-07-07T10:37:06",
+      "person_id": 1,
+      "id": 39,
+      "longitude": "37.55363"
+    },
+    {
+      "latitude": "-122.290883",
+      "creation_time": "2020-07-07T10:37:06",
+      "person_id": 1,
+      "id": 40,
+      "longitude": "37.55363"
+    },
+    {
+      "latitude": "-122.290883",
+      "creation_time": "2020-07-07T10:37:06",
+      "person_id": 1,
+      "id": 41,
+      "longitude": "37.55363"
+    },
+    {
+      "latitude": "35.0585136",
+      "creation_time": "2020-07-07T10:37:06",
+      "person_id": 6,
+      "id": 42,
+      "longitude": "-106.5719566"
+    },
+    {
+      "latitude": "35.0585136",
+      "creation_time": "2020-07-06T10:37:06",
+      "person_id": 6,
+      "id": 43,
+      "longitude": "-106.5719566"
+    },
+    {
+      "latitude": "35.0585136",
+      "creation_time": "2020-07-07T10:37:06",
+      "person_id": 6,
+      "id": 44,
+      "longitude": "-106.5719566"
+    },
+    {
+      "latitude": "35.058506",
+      "creation_time": "2020-07-05T10:37:06",
+      "person_id": 6,
+      "id": 45,
+      "longitude": "-106.5722575"
+    },
+    {
+      "latitude": "35.058564",
+      "creation_time": "2020-04-07T10:37:06",
+      "person_id": 6,
+      "id": 46,
+      "longitude": "-106.5721845"
+    },
+    {
+      "latitude": "35.058564",
+      "creation_time": "2020-05-01T10:37:06",
+      "person_id": 6,
+      "id": 47,
+      "longitude": "-106.5721846"
+    },
+    {
+      "latitude": "35.058564",
+      "creation_time": "2020-07-07T10:37:06",
+      "person_id": 6,
+      "id": 48,
+      "longitude": "-106.5721845"
+    },
+    {
+      "latitude": "35.058564",
+      "creation_time": "2020-07-07T10:38:06",
+      "person_id": 8,
+      "id": 49,
+      "longitude": "-106.5721845"
+    },
+    {
+      "latitude": "35.058564",
+      "creation_time": "2020-07-07T10:38:06",
+      "person_id": 8,
+      "id": 50,
+      "longitude": "-106.5721846"
+    },
+    {
+      "latitude": "35.058564",
+      "creation_time": "2020-07-01T10:38:06",
+      "person_id": 8,
+      "id": 51,
+      "longitude": "-106.5721846"
+    },
+    {
+      "latitude": "35.058564",
+      "creation_time": "2020-07-01T10:38:06",
+      "person_id": 9,
+      "id": 52,
+      "longitude": "-106.5721846"
+    },
+    {
+      "latitude": "35.0585136",
+      "creation_time": "2020-07-07T10:37:06",
+      "person_id": 9,
+      "id": 53,
+      "longitude": "-106.5719566"
+    },
+    {
+      "latitude": "35.0585136",
+      "creation_time": "2019-07-07T10:37:06",
+      "person_id": 9,
+      "id": 54,
+      "longitude": "-106.5719566"
+    },
+    {
+      "latitude": "35.0585136",
+      "creation_time": "2019-07-07T10:37:06",
+      "person_id": 5,
+      "id": 55,
+      "longitude": "-105.5719566"
+    },
+    {
+      "latitude": "34.0585136",
+      "creation_time": "2019-07-07T10:37:06",
+      "person_id": 5,
+      "id": 56,
+      "longitude": "-105.5719566"
+    },
+    {
+      "latitude": "-122.290883",
+      "creation_time": "2020-07-07T10:37:06",
+      "person_id": 5,
+      "id": 57,
+      "longitude": "37.55363"
+    },
+    {
+      "latitude": "35.0585136",
+      "creation_time": "2020-07-07T10:37:06",
+      "person_id": 8,
+      "id": 58,
+      "longitude": "-106.5719566"
+    },
+    {
+      "latitude": "35.0585136",
+      "creation_time": "2020-07-07T10:37:06",
+      "person_id": 8,
+      "id": 59,
+      "longitude": "-106.5719566"
+    },
+    {
+      "latitude": "35.0585136",
+      "creation_time": "2020-07-06T10:37:06",
+      "person_id": 8,
+      "id": 60,
+      "longitude": "-106.5719566"
+    },
+    {
+      "latitude": "35.0585136",
+      "creation_time": "2020-07-05T10:37:06",
+      "person_id": 8,
+      "id": 61,
+      "longitude": "-106.5719561"
+    },
+    {
+      "latitude": "35.0585136",
+      "creation_time": "2020-01-05T10:37:06",
+      "person_id": 8,
+      "id": 62,
+      "longitude": "-106.5719521"
+    },
+    {
+      "latitude": "35.0585136",
+      "creation_time": "2020-01-05T10:37:06",
+      "person_id": 5,
+      "id": 63,
+      "longitude": "-106.5719521"
+    },
+    {
+      "latitude": "35.0585136",
+      "creation_time": "2020-01-05T10:37:06",
+      "person_id": 6,
+      "id": 64,
+      "longitude": "-106.5719521"
+    },
+    {
+      "latitude": "-122.290883",
+      "creation_time": "2020-07-07T10:37:06",
+      "person_id": 9,
+      "id": 65,
+      "longitude": "37.55363"
+    },
+    {
+      "latitude": "-122.290883",
+      "creation_time": "2020-07-07T10:37:06",
+      "person_id": 5,
+      "id": 66,
+      "longitude": "37.55363"
+    },
+    {
+      "latitude": "-122.290883",
+      "creation_time": "2020-07-07T10:37:06",
+      "person_id": 8,
+      "id": 67,
+      "longitude": "37.55363"
+    },
+    {
+      "latitude": "-122.290883",
+      "creation_time": "2020-08-15T10:37:06",
+      "person_id": 6,
+      "id": 68,
+      "longitude": "37.55363"
+    }
+  ]
