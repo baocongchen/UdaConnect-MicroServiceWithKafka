@@ -17,10 +17,6 @@ class ConnectionService:
     ):
         """
         Finds all Person who have been within a given distance of a given Person within a date range.
-
-        This will run rather quickly locally, but this is an expensive method and will take a bit of time to run on
-        large datasets. This is by design: what are some ways or techniques to help make this data integrate more
-        smoothly for a better user experience for API consumers?
         """
         # Fetch data from Location API app
         location_url = ('http://udaconnect-location-api:5001/api/locations')
