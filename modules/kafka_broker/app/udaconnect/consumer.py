@@ -8,7 +8,7 @@ from google.protobuf.json_format import MessageToDict
 import logging
 
 def launch_consumer():
-    KAFKA_SERVER = 'kafka-consumer.default.svc.cluster.local'
+    KAFKA_SERVER = 'kafka.default.svc.cluster.local'
     TOPIC_NAME = "locations"
 
     logging.info(f"Connecting to Kafka at {KAFKA_SERVER}")
