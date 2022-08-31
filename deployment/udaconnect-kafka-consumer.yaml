@@ -31,7 +31,7 @@ spec:
         service: kafka-consumer
     spec:
       containers:
-      - image: petetran/kafka-consumer:latest
+      - image: petetran/udaconnect-kafka-consumer:latest
         name: kafka-consumer
         imagePullPolicy: Always
         env:
