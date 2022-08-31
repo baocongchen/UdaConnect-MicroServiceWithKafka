@@ -1,8 +1,8 @@
-FROM python:3.7-alpine
+FROM python:3.8
 
 WORKDIR .
 
-RUN apk add --no-cache gcc musl-dev linux-headers geos libc-dev
+# RUN apk add --no-cache gcc musl-dev linux-headers geos libc-dev
 COPY ./modules/kafka_broker/requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 COPY ./modules/kafka_broker/app/udaconnect/location.proto app/udaconnect/location.proto
