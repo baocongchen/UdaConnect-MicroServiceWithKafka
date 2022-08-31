@@ -1,6 +1,5 @@
 from kafka import KafkaConsumer
 from kafka.errors import NoBrokersAvailable
-from app import create_app
 
 import location_pb2_grpc
 import grpc
@@ -16,20 +15,18 @@ def launch_consumer():
     logging.info(f"Connecting to Kafka at {kafka_uri}")
 
     try:
-        app = create_app(os.getenv("FLASK_ENV") or "test")
-        with app.app_context():
-            consumer = KafkaConsumer(TOPIC_NAME, bootstrap_servers=kafka_uri)
-            channel = grpc.insecure_channel("127.0.0.1:5006", options=(('grpc.enable_http_proxy', 0),))
-            stub = location_pb2_grpc.LocationServiceStub(channel)
-            try:
-                for msg in consumer:
-                    location_dict = MessageToDict(msg.value)
-                    stub.Create(location_dict)
-                    logging.info(f"Created Location object: {location_dict}")
-            except:
-                print("Unexected error occurred")
-            finally:
-                consumer.close()
+        consumer = KafkaConsumer(TOPIC_NAME, bootstrap_servers=kafka_uri)
+        channel = grpc.insecure_channel("127.0.0.1:5006", options=(('grpc.enable_http_proxy', 0),))
+        stub = location_pb2_grpc.LocationServiceStub(channel)
+        try:
+            for msg in consumer:
+                location_dict = MessageToDict(msg.value)
+                stub.Create(location_dict)
+                logging.info(f"Created Location object: {location_dict}")
+        except:
+            print("Unexected error occurred")
+        finally:
+            consumer.close()
     except NoBrokersAvailable as err:
         print(f"Failed to establish a connection. Error: {err}")
         logging.info(f"Failed to establish a connection. Error: {err}")
