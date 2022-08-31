@@ -8,14 +8,13 @@ from google.protobuf.json_format import MessageToDict
 import logging
 
 def launch_consumer():
-
-    kafka_uri = "localhost:9092"
+    KAFKA_SERVER = 'kafka-consumer.default.svc.cluster.local'
     TOPIC_NAME = "locations"
 
-    logging.info(f"Connecting to Kafka at {kafka_uri}")
+    logging.info(f"Connecting to Kafka at {KAFKA_SERVER}")
 
     try:
-        consumer = KafkaConsumer(TOPIC_NAME, bootstrap_servers=kafka_uri)
+        consumer = KafkaConsumer(TOPIC_NAME, bootstrap_servers=KAFKA_SERVER)
         channel = grpc.insecure_channel("127.0.0.1:5006", options=(('grpc.enable_http_proxy', 0),))
         stub = location_pb2_grpc.LocationServiceStub(channel)
         try:
