@@ -12,11 +12,11 @@ def launch_consumer():
     TOPIC_NAME = "locations"
 
     logging.info(f"Connecting to Kafka at {KAFKA_SERVER}")
-
-    try:
-        consumer = KafkaConsumer(TOPIC_NAME, bootstrap_servers=KAFKA_SERVER)
-        channel = grpc.insecure_channel("127.0.0.1:5006", options=(('grpc.enable_http_proxy', 0),))
-        stub = location_pb2_grpc.LocationServiceStub(channel)
+    
+    consumer = KafkaConsumer(TOPIC_NAME, bootstrap_servers=KAFKA_SERVER)
+    channel = grpc.insecure_channel("127.0.0.1:5006", options=(('grpc.enable_http_proxy', 0),))
+    stub = location_pb2_grpc.LocationServiceStub(channel)
+    while True:
         try:
             for msg in consumer:
                 location_dict = MessageToDict(msg.value)
@@ -26,9 +26,6 @@ def launch_consumer():
             print("Unexected error occurred")
         finally:
             consumer.close()
-    except NoBrokersAvailable as err:
-        print(f"Failed to establish a connection. Error: {err}")
-        logging.info(f"Failed to establish a connection. Error: {err}")
 
 
 if __name__ == "__main__":
