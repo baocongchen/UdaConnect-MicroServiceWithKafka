@@ -1,0 +1,57 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: location-event-api
+  name: location-event-svc-api
+spec:
+  ports:
+    - name: "5005"
+      port: 5005
+      targetPort: 5005
+      nodePort: 30004
+  selector:
+    service: location-event-api
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: location-event-api
+  name: location-event-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: location-event-api
+  template:
+    metadata:
+      labels:
+        service: location-event-api
+    spec:
+      containers:
+        - image: petetran/kafka_server:latest
+          name: location-event-api-container
+          imagePullPolicy: Always
+          env:
+            - name: KAFKA_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: db-env
+                  key: KAFKA_URL
+            - name: KAFKA_TOPIC
+              valueFrom:
+                configMapKeyRef:
+                  name: db-env
+                  key: KAFKA_TOPIC
+            - name: PYTHONUNBUFFERED
+              value: '0'
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "64m"
+            limits:
+              memory: "256Mi"
+              cpu: "256m"
+      restartPolicy: Always
