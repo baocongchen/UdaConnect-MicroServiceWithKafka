@@ -4,8 +4,9 @@ WORKDIR .
 
 COPY . .
 # RUN apk add --no-cache gcc musl-dev linux-headers geos libc-dev
+RUN python -m pip install --upgrade pip
 RUN pip3 install -r requirements.txt
-RUN python3 -m grpc_tools.protoc -I./app/udaconnect --python_out=./app/udaconnect --grpc_python_out=./app/udaconnect app/udaconnect/location.proto
+RUN python3 -m grpc_tools.protoc -I./ --python_out=./ --grpc_python_out=./ location.proto
 EXPOSE 5005
 
 
