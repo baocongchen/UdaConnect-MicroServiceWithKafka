@@ -6,10 +6,9 @@ metadata:
   name: kafka-consumer
 spec:
   ports:
-  - name: "5004"
-    port: 5004
-    targetPort: 5004
-    nodePort: 30004
+    - name: "9092"
+      port: 9092
+      targetPort: 9092
   selector:
     service: kafka-consumer
   type: NodePort

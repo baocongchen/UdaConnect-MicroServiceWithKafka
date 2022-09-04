@@ -32,7 +32,7 @@ spec:
     spec:
       containers:
         - image: petetran/kafka_server:latest
-          name: location-event-api-container
+          name: kafka_server
           imagePullPolicy: Always
           env:
             - name: KAFKA_URL
