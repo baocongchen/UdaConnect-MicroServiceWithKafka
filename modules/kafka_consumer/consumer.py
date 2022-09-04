@@ -1,6 +1,5 @@
 from kafka import KafkaConsumer
 from sqlalchemy import create_engine
-import os
 import json
 
 TOPIC_NAME = "location"
