@@ -31,8 +31,8 @@ spec:
         service: location-event-api
     spec:
       containers:
-        - image: petetran/kafka_server:latest
-          name: kafka_server
+        - image: petetran/udaconnect-kafka-server:latest
+          name: kafka-server
           imagePullPolicy: Always
           env:
             - name: KAFKA_URL
