@@ -34,6 +34,16 @@ spec:
         name: kafka-consumer
         imagePullPolicy: Always
         env:
+        - name: KAFKA_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: db-env
+                  key: KAFKA_URL
+        - name: KAFKA_TOPIC
+          valueFrom:
+            configMapKeyRef:
+              name: db-env
+              key: KAFKA_TOPIC
         - name: DB_USERNAME
           valueFrom:
             configMapKeyRef:

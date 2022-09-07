@@ -9,9 +9,9 @@ from google.protobuf.json_format import MessageToDict
 import logging
 
 TOPIC_NAME = 'location'
-KAFKA_SERVER = 'kafka-service:9092'
+KAFKA_URL = 'kafka-service:9092'
 
-producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER)
+producer = KafkaProducer(bootstrap_servers=KAFKA_URL)
 
 class LocationService(location_pb2_grpc.EventLocationServiceServicer):
 
