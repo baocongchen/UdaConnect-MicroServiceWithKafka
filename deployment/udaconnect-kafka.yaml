@@ -88,14 +88,14 @@ spec:
           startupProbe:
             tcpSocket:
               port: 9092
-            initialDelaySeconds: 40
+            initialDelaySeconds: 60
             failureThreshold: 30
           readinessProbe:
             tcpSocket:
               port: 9092
             timeoutSeconds: 5
             periodSeconds: 5
-            initialDelaySeconds: 40
+            initialDelaySeconds: 60
           env:
             - name: KAFKA_ADVERTISED_PORT
               value: 9092
