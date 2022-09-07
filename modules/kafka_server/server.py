@@ -9,7 +9,7 @@ from google.protobuf.json_format import MessageToDict
 import logging
 
 TOPIC_NAME = 'location'
-KAFKA_SERVER = 'localhost:9092'
+KAFKA_SERVER = 'kafka-service:9092'
 
 producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER)
 
