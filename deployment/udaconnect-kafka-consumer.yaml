@@ -30,19 +30,19 @@ spec:
         service: kafka-consumer
     spec:
       initContainers:
-      - name: kafka-check
-        image: busybox:1.28
-        command: ['sh', '-c', "until nslookup kafka-service && nc -z 9092; do echo waiting for kafka service; sleep 5; done"]
+        - name: kafka-check
+          image: busybox:1.28
+          command: ['sh', '-c', "until nslookup kafka-service && nc -z 9092; do echo waiting for kafka service; sleep 5; done"]
       containers:
         - image: petetran/udaconnect-kafka-consumer:latest
           name: kafka-consumer
           imagePullPolicy: Always
           env:
             - name: KAFKA_URL
-                  valueFrom:
-                    configMapKeyRef:
-                      name: db-env
-                      key: KAFKA_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: db-env
+                  key: KAFKA_URL
             - name: KAFKA_TOPIC
               valueFrom:
                 configMapKeyRef:
