@@ -20,7 +20,7 @@ spec:
           command: ['sh', '-c', "until nslookup kafka && nc -z 9092; do echo waiting for kafka service; sleep 5; done"]
       containers:
         - image: petetran/udaconnect-location-consumer:latest
-          name: kafka-consumer
+          name: location-consumer
           imagePullPolicy: Always
           env:
             - name: KAFKA_URL

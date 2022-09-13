@@ -13,7 +13,7 @@ KAFKA_URL = 'kafka:9092'
 
 producer = KafkaProducer(bootstrap_servers=KAFKA_URL)
 
-class LocationService(location_pb2_grpc.EventLocationServiceServicer):
+class LocationService(location_pb2_grpc.LocationServiceServicer):
 
     def __init__(self, *args, **kwargs):
         pass
