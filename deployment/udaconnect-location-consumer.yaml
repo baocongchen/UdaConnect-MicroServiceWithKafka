@@ -14,10 +14,6 @@ spec:
       labels:
         service: location-consumer
     spec:
-      initContainers:
-        - name: kafka-check
-          image: busybox:1.28
-          command: ['sh', '-c', "until nslookup kafka && nc -z 9092; do echo waiting for kafka service; sleep 5; done"]
       containers:
         - image: petetran/udaconnect-location-consumer:latest
           name: location-consumer
