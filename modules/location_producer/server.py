@@ -9,7 +9,7 @@ from google.protobuf.json_format import MessageToDict
 import logging
 
 TOPIC_NAME = 'location'
-KAFKA_URL = 'kafka-service:9092'
+KAFKA_URL = 'kafka:9092'
 
 producer = KafkaProducer(bootstrap_servers=KAFKA_URL)
 
@@ -27,7 +27,7 @@ class LocationService(location_pb2_grpc.EventLocationServiceServicer):
         }
         msg = json.dumps(request_value, indent=2).encode('utf-8')
         producer.send(TOPIC_NAME, msg)
-        return location_pb2.EventLocationMessage(**request_value)
+        return location_pb2.LocationMessageResponse(**request_value)
 
 def serve():
   server = grpc.server(futures.ThreadPoolExecutor(max_workers=2))

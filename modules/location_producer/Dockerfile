@@ -2,7 +2,7 @@ FROM python:3.8
 
 WORKDIR .
 
-COPY ./modules/kafka_producer .
+COPY ./modules/location_producer .
 # RUN apk add --no-cache gcc musl-dev linux-headers geos libc-dev
 RUN python -m pip install --upgrade pip
 RUN pip3 install -r requirements.txt

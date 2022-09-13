@@ -1,6 +1,6 @@
 # Workflow to ensure whenever there is a push to Github main branch,
 # Github packages and pushes the new image for the TechTrends application to DockerHub.
-name: UdaConnect Kafka Producer - Package with Docker
+name: UdaConnect Kafka Location Producer - Package with Docker
 
 # Controls when the action will run
 on:
@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    name: Package and Push UdaConnect Kafka Producer
+    name: Package and Push UdaConnect Kafka Location Producer
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -22,7 +22,7 @@ jobs:
         with:
           # list of Docker images to use as base name for tags
           images: |
-            petetran/udaconnect-kafka-producer
+            petetran/udaconnect-location-producer
           tags: |
             type=raw,value=v1.0
             type=ref,event=branch
@@ -37,11 +37,11 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Build and push Docker image of kafka producer
+      - name: Build and push Docker image of kafka location producer
         uses: docker/build-push-action@v3.1.0
         with:
           context: .
           push: true
-          file: ./modules/kafka_producer/Dockerfile
+          file: ./modules/location_producer/Dockerfile
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
