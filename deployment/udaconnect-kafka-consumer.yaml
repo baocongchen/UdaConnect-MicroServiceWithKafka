@@ -1,40 +1,25 @@
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    service: kafka-consumer
-  name: kafka-consumer
-spec:
-  ports:
-    - name: "9092"
-      port: 9092
-      targetPort: 9092
-  selector:
-    service: kafka-consumer
-  type: NodePort
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    service: kafka-consumer
-  name: kafka-consumer
+    service: location-consumer
+  name: location-consumer
 spec:
   replicas: 1
   selector:
     matchLabels:
-      service: kafka-consumer
+      service: location-consumer
   template:
     metadata:
       labels:
-        service: kafka-consumer
+        service: location-consumer
     spec:
       initContainers:
         - name: kafka-check
           image: busybox:1.28
           command: ['sh', '-c', "until nslookup kafka-service && nc -z 9092; do echo waiting for kafka service; sleep 5; done"]
       containers:
-        - image: petetran/udaconnect-kafka-consumer:latest
+        - image: petetran/udaconnect-location-consumer:latest
           name: kafka-consumer
           imagePullPolicy: Always
           env:

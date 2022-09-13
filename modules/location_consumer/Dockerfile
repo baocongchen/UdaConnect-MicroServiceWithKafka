@@ -1,6 +1,6 @@
 FROM python:3.8
 WORKDIR .
-COPY ./modules/kafka_consumer .
+COPY ./modules/location_consumer .
 RUN python -m pip install --upgrade pip
 RUN pip3 install -r requirements.txt
 

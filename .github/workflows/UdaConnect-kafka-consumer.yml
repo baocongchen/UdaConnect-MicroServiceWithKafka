@@ -1,6 +1,6 @@
 # Workflow to ensure whenever there is a push to Github main branch,
 # Github packages and pushes the new image for the TechTrends application to DockerHub.
-name: UdaConnect Kafka Consumer - Package with Docker
+name: UdaConnect Kafka Location Consumer - Package with Docker
 
 # Controls when the action will run
 on:
@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    name: Package and Push UdaConnect Kafka Consumer
+    name: Package and Push UdaConnect Kafka Location Consumer
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -22,7 +22,7 @@ jobs:
         with:
           # list of Docker images to use as base name for tags
           images: |
-            petetran/udaconnect-kafka-consumer
+            petetran/udaconnect-location-consumer
           tags: |
             type=raw,value=v1.0
             type=ref,event=branch
@@ -42,6 +42,6 @@ jobs:
         with:
           context: .
           push: true
-          file: ./modules/kafka_consumer/Dockerfile
+          file: ./modules/location_consumer/Dockerfile
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
