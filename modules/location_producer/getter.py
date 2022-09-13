@@ -12,5 +12,5 @@ channel = grpc.insecure_channel(
     "location-producer:5005")
 stub = location_pb2_grpc.LocationServiceStub(channel)
 
-response = stub.Get(location_pb2.LocationID(id=29))
+response = stub.Get(location_pb2.RetrieveMessageRequest(id=29))
 print(response)
