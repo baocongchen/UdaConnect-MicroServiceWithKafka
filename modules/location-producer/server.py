@@ -36,7 +36,7 @@ class LocationService(location_pb2_grpc.LocationServiceServicer):
             Location).filter(Location.id == id).first()
         print("Location: {}".format(location))
         if location is None:
-            return location_pb2.LocationMessageResponse(
+            return location_pb2.LocationMessage(
                 id=id,
                 person_id=None,
                 longitude=None,
@@ -44,7 +44,7 @@ class LocationService(location_pb2_grpc.LocationServiceServicer):
                 creation_time=None
             )
         else:
-            return location_pb2.LocationMessageResponse(**{
+            return location_pb2.LocationMessage(**{
                 "id": location.id,
                 "person_id": location.person_id,
                 "longitude": location.longitude,
