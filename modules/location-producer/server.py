@@ -13,7 +13,7 @@ from sqlalchemy.orm import sessionmaker
 
 TOPIC_NAME = 'location'
 KAFKA_URL = 'kafka:9092'
-DB_USERNAME = "ct_geoconnections"
+DB_USERNAME = "ct_admin"
 DB_PASSWORD = "d293aW1zb3NlY3VyZQ=="
 DB_HOST = "postgres"
 DB_PORT = 5432

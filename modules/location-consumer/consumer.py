@@ -5,7 +5,7 @@ import json
 TOPIC_NAME = "location"
 print('started listening ' + TOPIC_NAME)
 
-DB_USERNAME = "ct_geoconnections"
+DB_USERNAME = "ct_admin"
 DB_PASSWORD = "d293aW1zb3NlY3VyZQ=="
 DB_HOST = "postgres"
 DB_PORT = 5432
