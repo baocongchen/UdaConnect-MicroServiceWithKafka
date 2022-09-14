@@ -11,13 +11,12 @@ import logging
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-TOPIC_NAME = 'location'
-KAFKA_URL = 'kafka:9092'
-DB_USERNAME = "ct_admin"
-DB_PASSWORD = "d293aW1zb3NlY3VyZQ=="
-DB_HOST = "postgres"
-DB_PORT = 5432
-DB_NAME = "geoconnections"
+DB_USERNAME = os.environ["DB_USERNAME"]
+DB_PASSWORD = os.environ["DB_PASSWORD"]
+DB_HOST = os.environ["DB_HOST"]
+DB_PORT = os.environ["DB_PORT"]
+DB_NAME = os.environ["DB_NAME"]
+KAFKA_URL = os.environ["KAFKA_URL"]
 
 producer = KafkaProducer(bootstrap_servers=KAFKA_URL)
 

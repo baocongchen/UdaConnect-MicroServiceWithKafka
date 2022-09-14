@@ -1,16 +1,16 @@
 from kafka import KafkaConsumer
 from sqlalchemy import create_engine
 import json
-
+import os
 TOPIC_NAME = "location"
 print('started listening ' + TOPIC_NAME)
 
-DB_USERNAME = "ct_admin"
-DB_PASSWORD = "d293aW1zb3NlY3VyZQ=="
-DB_HOST = "postgres"
-DB_PORT = 5432
-DB_NAME = "geoconnections"
-KAFKA_URL = "kafka:9092"
+DB_USERNAME = os.environ["DB_USERNAME"]
+DB_PASSWORD = os.environ["DB_PASSWORD"]
+DB_HOST = os.environ["DB_HOST"]
+DB_PORT = os.environ["DB_PORT"]
+DB_NAME = os.environ["DB_NAME"]
+KAFKA_URL = os.environ["KAFKA_URL"]
 
 consumer = KafkaConsumer(TOPIC_NAME, bootstrap_servers=[KAFKA_URL])
 
