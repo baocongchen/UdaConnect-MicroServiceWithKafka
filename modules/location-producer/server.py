@@ -11,26 +11,23 @@ import logging
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-DB_USERNAME = os.environ["DB_USERNAME"]
-DB_PASSWORD = os.environ["DB_PASSWORD"]
-DB_HOST = os.environ["DB_HOST"]
-DB_PORT = os.environ["DB_PORT"]
-DB_NAME = os.environ["DB_NAME"]
-KAFKA_URL = os.environ["KAFKA_URL"]
-
-producer = KafkaProducer(bootstrap_servers=KAFKA_URL)
 
 class LocationService(location_pb2_grpc.LocationServiceServicer):
 
     def __init__(self, *args, **kwargs):
+        DB_USERNAME = os.environ["DB_USERNAME"]
+        DB_PASSWORD = os.environ["DB_PASSWORD"]
+        DB_HOST = os.environ["DB_HOST"]
+        DB_PORT = os.environ["DB_PORT"]
+        DB_NAME = os.environ["DB_NAME"]
         engine = create_engine(
             f"postgresql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}")
         SessionClass = sessionmaker(engine)
         self.session = SessionClass()
 
-        self.TOPIC_NAME = 'locations'
-        KAFKA_SERVER = 'kafka:9092'
-        self.producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER)
+        self.TOPIC_NAME = 'location'
+        KAFKA_URL = os.environ["KAFKA_URL"]
+        self.producer = KafkaProducer(bootstrap_servers=KAFKA_URL)
 
     def Get(self, request, context):
 
@@ -39,7 +36,7 @@ class LocationService(location_pb2_grpc.LocationServiceServicer):
             Location).filter(Location.id == id).first()
         print("Location: {}".format(location))
         if location is None:
-            return location_pb2.LocationMessage(
+            return location_pb2.LocationMessageResponse(
                 id=id,
                 person_id=None,
                 longitude=None,
@@ -47,7 +44,7 @@ class LocationService(location_pb2_grpc.LocationServiceServicer):
                 creation_time=None
             )
         else:
-            return location_pb2.LocationMessage(**{
+            return location_pb2.LocationMessageResponse(**{
                 "id": location.id,
                 "person_id": location.person_id,
                 "longitude": location.longitude,
