@@ -18,7 +18,7 @@ class LocationService(location_pb2_grpc.LocationServiceServicer):
     def __init__(self, *args, **kwargs):
         pass
 
-    def GetServerResponse(self, request, context):
+    def Get(self, request, context):
 
         request_value = {
             'userId': int(request.userId),
