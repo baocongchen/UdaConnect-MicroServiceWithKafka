@@ -1,9 +1,10 @@
 syntax = "proto3";
 
 message LocationMessage {
-  int32 person_id = 1;
-  string latitude = 2;
-  string longitude = 3;
+  int32 id = 1;
+  int32 person_id = 2;
+  string latitude = 3;
+  string longitude = 4;
 }
 
 message LocationID {
