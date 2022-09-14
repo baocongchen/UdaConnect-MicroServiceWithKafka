@@ -11,7 +11,7 @@ DB_HOST = os.environ["DB_HOST"]
 DB_PORT = os.environ["DB_PORT"]
 DB_NAME = os.environ["DB_NAME"]
 KAFKA_URL = os.environ["KAFKA_URL"]
-
+print('kafka url: ', KAFKA_URL)
 consumer = KafkaConsumer(TOPIC_NAME, bootstrap_servers=[KAFKA_URL])
 
 def save_location(location):
