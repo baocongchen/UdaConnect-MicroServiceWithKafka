@@ -7,7 +7,7 @@ Sample implementation of a getter that can be used to receive gRPC messages.
 """
 
 print("Sending sample payload...")
-location_id = sys.argv[-1]
+location_id = int(sys.argv[-1])
 channel = grpc.insecure_channel(
     "location-producer:5005")
 stub = location_pb2_grpc.LocationServiceStub(channel)
