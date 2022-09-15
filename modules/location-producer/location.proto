@@ -1,10 +1,9 @@
 syntax = "proto3";
 
 message LocationMessage {
-  int32 id = 1;
-  int32 person_id = 2;
-  string latitude = 3;
-  string longitude = 4;
+  int32 person_id = 1;
+  string latitude = 2;
+  string longitude = 3;
 }
 
 message LocationID {
@@ -18,5 +17,5 @@ message Empty {
 
 service LocationService {
   rpc Create(LocationMessage) returns (LocationMessage);
-  rpc Get(LocationID) returns (LocationID);
+  rpc Get(LocationID) returns (LocationMessage);
 }

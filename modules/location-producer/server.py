@@ -37,19 +37,15 @@ class LocationService(location_pb2_grpc.LocationServiceServicer):
         print("Location: {}".format(location))
         if location is None:
             return location_pb2.LocationMessage(
-                id=id,
                 person_id=None,
                 longitude=None,
-                latitude=None,
-                creation_time=None
+                latitude=None
             )
         else:
             return location_pb2.LocationMessage(**{
-                "id": location.id,
                 "person_id": location.person_id,
                 "longitude": location.longitude,
-                "latitude": location.latitude,
-                "creation_time": location.creation_time.isoformat(),
+                "latitude": location.latitude
             })
 
 def serve():
