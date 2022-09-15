@@ -77,32 +77,45 @@ Do `vagrant ssh` to login to your vagrant virtual machine, clone the repository,
 4. `kubectl apply -f deployment/udaconnect-location-api.yaml` - Set up the service and deployment for the Location API
 4. `kubectl apply -f deployment/udaconnect-connection-api.yaml` - Set up the service and deployment for the Connection API
 5. `kubectl apply -f deployment/udaconnect-frontend-app.yaml` - Set up the service and deployment for the web app
-6. `sh scripts/run_db_command.sh <POD_NAME>` - Seed your database against the `postgres` pod. (`kubectl get pods` will give you the `POD_NAME`)
+6. `kubectl apply -f deployment/kafka.yaml` - Set up the service and deployment for kafka server
+7. Follow [the instruction](https://docs.bitnami.com/tutorials/deploy-scalable-kafka-zookeeper-cluster-kubernetes) to create a kafka topic called `location` 
+8. `sh scripts/run_db_command.sh <POD_NAME>` - Seed your database against the `postgres` pod. (`kubectl get pods` will give you the `POD_NAME`)
+9. `kubectl apply -f deployment/udaconnect-location-producer.yaml` - Set up the service and deployment for gRPC Producer
+10. `kubectl apply -f deployment/udaconnect-location-consumer.yaml` - Set up the deployment for gRPC Consumer
 
 Manually applying each of the individual `yaml` files is cumbersome but going through each step provides some context on the content of the starter project. In practice, we would have reduced the number of steps by running the command against a directory to apply of the contents: `kubectl apply -f deployment/`.
 
 Note: The first time you run this project, you will need to seed the database with dummy data. Use the command `sh scripts/run_db_command.sh <POD_NAME>` against the `postgres` pod. (`kubectl get pods` will give you the `POD_NAME`). Subsequent runs of `kubectl apply` for making changes to deployments or services shouldn't require you to seed the database again!
 
 ### Verifying it Works
-Once the project is up and running, you should be able to see 5 deployments and 6 services in Kubernetes:
+Once the project is up and running, you should be able to see all the deployments and services in Kubernetes:
 
 ```
-NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
-udaconnect-frontend-app     1/1     1            1           36m
-postgres                    1/1     1            1           36m
-udaconnect-location-api     1/1     1            1           36m
-udaconnect-connection-api   1/1     1            1           36m
-udaconnect-person-api       1/1     1            1           36m
+NAME                                        READY   STATUS    RESTARTS       AGE
+postgres-554d66564b-2bwkx                   1/1     Running   0              21h
+udaconnect-connection-api-fdb6567d9-jg52p   1/1     Running   0              21h
+udaconnect-frontend-app-84bff8d64-2mx2n     1/1     Running   0              21h
+udaconnect-location-api-cf8f7bf84-vtvxd     1/1     Running   0              21h
+kafka-zookeeper-0                           1/1     Running   0              21h
+udaconnect-person-api-7bb457d84d-qnl7v      1/1     Running   0              21h
+kafka-0                                     1/1     Running   0              21h
+location-producer-6689567fd5-jjgrb          1/1     Running   0              10m
+location-consumer-5769fdb566-8dp67          1/1     Running   1 (2m1s ago)   10m
 ```
 
 ```
-NAME                        TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
-kubernetes                  ClusterIP   10.43.0.1       <none>        443/TCP          2d6h
-postgres                    NodePort    10.43.140.64    <none>        5432:30261/TCP   36m
-udaconnect-connection-api   NodePort    10.43.82.117    <none>        5003:30003/TCP   36m
-udaconnect-frontend-app     NodePort    10.43.132.111   <none>        3000:30000/TCP   36m
-udaconnect-location-api     NodePort    10.43.63.133    <none>        5001:30001/TCP   36m
-udaconnect-person-api       NodePort    10.43.35.87     <none>        5002:30002/TCP   36m
+NAME                        TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
+kubernetes                  ClusterIP   10.43.0.1       <none>        443/TCP                      46h
+kafka-zookeeper-headless    ClusterIP   None            <none>        2181/TCP,2888/TCP,3888/TCP   21h
+kafka-zookeeper             ClusterIP   10.43.214.114   <none>        2181/TCP,2888/TCP,3888/TCP   21h
+kafka-headless              ClusterIP   None            <none>        9092/TCP,9093/TCP            21h
+kafka                       ClusterIP   10.43.239.16    <none>        9092/TCP                     21h
+postgres                    NodePort    10.43.102.194   <none>        5432:32128/TCP               21h
+udaconnect-connection-api   NodePort    10.43.205.35    <none>        5003:30003/TCP               21h
+udaconnect-frontend-app     NodePort    10.43.166.46    <none>        3000:30000/TCP               21h
+udaconnect-location-api     NodePort    10.43.232.109   <none>        5001:30001/TCP               21h
+udaconnect-person-api       NodePort    10.43.1.193     <none>        5002:30002/TCP               21h
+location-producer           NodePort    10.43.69.167    <none>        5005:30005/TCP               12m
 ```
 
 These pages should also load on your web browser:

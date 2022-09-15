@@ -1,0 +1,7 @@
+1/ To retrieve Location data
+- Execute `kubectl get pod` to look up the name of location-consumer pod
+- Execute `kubectl exec location-consumer-someHashString -- python3 getter.py 29` (29 is location id; replace 29 with an id of a location you want to retrieve)
+
+2/ To create Location data
+- Execute `kubectl get pod` to look up the name of location-producer pod,
+- Execute `kubectl exec location-producer-someHashString -- python3 writer.py` (you can make changes in request data in write.py to add different Location data to DB)

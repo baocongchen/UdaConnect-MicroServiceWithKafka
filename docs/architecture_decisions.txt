@@ -1,5 +1,7 @@
 The api is separated into 3 different microservices: Person service, Location service, and Connection service.
 The Person service does not rely on Connection service and Location service, so it can exist as a stand-alone service.
 Similarly, the Location service does not rely on Connection service and Person service, so it is isolated from the original API services.
+Since it's more important that Location data is retrieved/created as fast as possible, a decision was made to adopt gRPC to speed up the process.
+The use of Kafka ensures messages are safely queued, thus avoiding data loss.
 The Connection service depends on both Location service and Person service, so instead of letting it be part of either the Location API or Person API, we separate it from the original service.
 The Connection will request data from Location and Person and serve requests from the frontend app.
