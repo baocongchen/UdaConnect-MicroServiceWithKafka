@@ -47,6 +47,18 @@ class LocationService(location_pb2_grpc.LocationServiceServicer):
                 "longitude": location.longitude,
                 "latitude": location.latitude
             })
+    def Create(self, request, context):
+
+        request_value = {
+            "longitude": request.longitude,
+            "person_id": int(request.person_id),
+            "latitude": request.latitude,
+        }
+        person_data = json.dumps(request_value).encode()
+        self.producer.send(self.TOPIC_NAME, person_data)
+
+        return location_pb2.LocationMessage(**request_value)
+
 
 def serve():
   server = grpc.server(futures.ThreadPoolExecutor(max_workers=2))
